@@ -1,3 +1,4 @@
+set grid x y
 set xlabel 'Date'
 set ylabel 'Nombre de validations'
 
