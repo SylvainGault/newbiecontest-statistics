@@ -151,6 +151,12 @@ def createtables(cur):
 
 
 
+def createindexes(cur):
+    printupdate("Creating indexes")
+    cur.execute("CREATE INDEX date ON validation (date)")
+
+
+
 def importminidump(filename, cur):
     printupdate("Importing minidump")
 
@@ -280,6 +286,7 @@ def main():
     createtables(cur)
     importminidump(minidumpxmlbz2, cur)
     importpointstable(pointstablehtml, cur)
+    createindexes(cur)
 
     printupdate("Saving database")
     conn.commit()
