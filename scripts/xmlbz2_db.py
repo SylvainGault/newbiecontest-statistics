@@ -39,8 +39,11 @@ class MinidumpCB:
                     (self.userid, int(attr['id']), int(attr['cat']), date))
 
         elif newstate == ".newbiecontest.users.user":
+            dateinsc = attr['inscription']
+            if dateinsc == '0000-00-00 00:00:00':
+                dateinsc = None
             self.cur.execute("INSERT INTO user (nick, inscription, solvedchalls, points, lastvalidation) VALUES(?, ?, ?, ?, ?)",
-                    (attr['nick'], attr['inscription'], int(attr['solvedChalls']), int(attr['points']), attr['lastValidation']))
+                    (attr['nick'], dateinsc, int(attr['solvedChalls']), int(attr['points']), attr['lastValidation']))
             self.userid = self.cur.lastrowid
 
         elif newstate == ".newbiecontest.categories.category.challenge":
