@@ -25,7 +25,8 @@ PLOTS=validation_alltime_histo_yearly\
       registration_year_avg_histo_monthy\
       registration_year_avg_smooth\
       registration_week_avg_histo_daily\
-      registration_week_avg_smooth
+      registration_week_avg_smooth\
+      registration_day_avg_histo_hourly
 
 GNUPLOTDATA=$(patsubst %,$(GNUPLOTDATADIR)/%.data,$(PLOTS))
 GNUPLOTPLTS=$(patsubst %,$(GNUPLOTDIR)/%.plt,$(PLOTS))
